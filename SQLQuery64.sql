@@ -14,8 +14,8 @@ BEGIN
 	--SELECT @storeid,@prodidfk,@barcode
 	IF EXISTS (SELECT 1 FROM [dbo].[Tbl_barcode_Stock_Master] WHERE stkbar_storeidfk=@storeid AND stkbar_barcode=@barcode and stkbar_prodidfk=@prodidfk)
 	BEGIN
-	--SELECT 'UPDATE'
-			UPDATE Tbl_barcode_Stock_Master set Stkbar_Available=(select * from [dbo].[getstockcount_virtual_part_barcode](stkbar_prodidfk ,stkbar_barcode,stkbar_storeidfk,6611,'','CMP240003')) where  stkbar_storeidfk =@storeid AND stkbar_barcode=@barcode
+	SELECT 'UPDATE'
+			
 	END
 	ELSE
 	BEGIN
